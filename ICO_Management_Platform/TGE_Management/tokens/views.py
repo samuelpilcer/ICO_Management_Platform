@@ -47,4 +47,4 @@ def token(request, id):
     models=[model]
     id_model=id
     
-    return render(request, 'model.html', locals())
+    return render(request, 'token.html', locals())
