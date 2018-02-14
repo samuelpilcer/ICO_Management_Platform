@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+
+{% block tge_data %} 
+    <div class="container-fluid">
+      <!-- Breadcrumbs-->
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="/">Accueil</a>
+        </li>
+        {% if user.is_authenticated %}
+        <li class="breadcrumb-item active">{{ model.titre }}</li>
+        {% endif %}
+      </ol>
+      <!-- Icon Cards-->
+      {% if user.is_authenticated %}
+      <div class="card mb-3">
+        <div class="card-header">
+          <i class="fa fa-table"></i>Mes modèles</div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+              <thead>
+                <tr>
+                  <th>Type of Layer</th>
+                  <th>Activation function</th>
+                  <th>Number of neurons</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for layer in layers %}
+                <tr>
+                  <td>Dense</td>
+                  <td>{{ layer.activation }}</td>
+                  <td>{{ layer.number }}</td>
+                  <td>Delete</td>
+                </tr>
+                {% empty %}
+                {% endfor %}
+              </tbody>
+            </table>
+            <a href="http://m-learning.fr/new-layer/{{ id_model }}">Ajouter une nouvelle couche</a>
+          </div>
+        </div>
+        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+      </div>
+
+      <div class="card mb-3">
+        <div class="card-header">
+          <i class="fa fa-table"></i>Etat du réseau</div>
+        <div class="card-body">
+          {% if is_trained %}
+          <button type="button" class="btn btn-lg btn-success" disabled>Réseau entrainé. Accuracy : {{ accuracy }}</button>
+          {% else %}
+          <button type="button" class="btn btn-lg btn-warning" disabled>Réseau non entrainé</button>
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="card mb-3">
+        <div class="card-header">
+          <i class="fa fa-table"></i>Données d'entraînement</div>
+        <div class="card-body">
+          <a href="http://m-learning.fr/train-model/{{ id_model }}">Entraîner le modèle</a>
+        </div>
+        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+      </div>
+      {% if is_trained %}
+      <div class="card mb-3">
+        <div class="card-header">
+          <i class="fa fa-table"></i>Données d'entraînement</div>
+        <div class="card-body">
+          <a href="http://m-learning.fr/process-model/{{ id_model }}">Emettre des prédictions</a>
+        </div>
+        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+      </div>
+      {% endif %}
+      
+      {% endif %}
+
+      <!-- Example DataTables Card-->
+      
+    </div>
+    <!-- /.container-fluid-->
+    {% endblock %} 

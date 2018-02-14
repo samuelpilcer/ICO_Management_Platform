@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block tge_list %} 
+<div class="container-fluid">
+      <!-- Breadcrumbs-->
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">
+      <a href="#">Accueil</a>
+    </li>
+    {% if user.is_authenticated %}
+    <li class="breadcrumb-item active">Mes TGEs</li>
+    {% endif %}
+  </ol>
+  <!-- Icon Cards-->
+  {% if user.is_authenticated %}
+  <div class="card mb-3">
+    <div class="card-header">
+      <i class="fa fa-table"></i>Mes TGEs</div>
+    <div class="card-body">
+    {% for model in models %}
+    <a href="/user/token/{{ model.id }}">{{ model.titre }}</a>
+    <p>{{ model.sous_titre }}</p>
+    <p>{{ model.date }}</p>
+    </br>
+    {% endfor %}
+    <a href="/user/new-token">Créer un nouveau token</a>
+  </div>
+  <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+  </div>
+  {% endif %}
+{% endblock %}
