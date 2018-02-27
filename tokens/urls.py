@@ -19,5 +19,5 @@ from . import views
 
 urlpatterns = [
     path('new-token', views.new_token, name='new-token'),
-    path('token/(\d+)', views.token, name='token'),
+    path(r'^token/(\d+)$', views.token, name='token'),
 ]
