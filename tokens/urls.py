@@ -18,6 +18,6 @@ from django.contrib import admin
 from . import views
 
 urlpatterns = [
-    #path(r'^new-token$', views.new_token, name='new-token'),
-    #path(r'^token/(\d+)$', views.token, name='token'),
+    path(r'^new-token$', views.new_token, name='new-token'),
+    path(r'^token/(\d+)$', views.token, name='token'),
 ]

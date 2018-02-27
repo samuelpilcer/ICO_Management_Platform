@@ -24,5 +24,5 @@ urlpatterns = [
     path('connexion/', views.connexion, name='connexion'),
     path('inscription/', views.inscription, name='inscription'),
     path('deconnexion/', views.deconnexion, name='deconnexion'),
-    path('user/', include('tokens.urls')),
+    #path('user/', include('tokens.urls')),
 ]
