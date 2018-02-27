@@ -10,7 +10,7 @@ class Token(models.Model):
     description = models.CharField(max_length=400)
     cap = models.IntegerField(default=1000000)
     ether_price = models.FloatField(default=1)
-    admin = models.ForeignKey(User)
+    admin = models.ForeignKey(User, on_delete=models.CASCADE)
     sale_state = models.CharField(max_length=100, default="not_started")
     date = models.DateTimeField(auto_now_add=True, auto_now=False, 
                                 verbose_name="Date de parution")
