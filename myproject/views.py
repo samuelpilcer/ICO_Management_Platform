@@ -16,6 +16,7 @@ import csv
 import os
 from django.views.static import serve
 import sys
+from .forms import ConnexionForm, InscriptionForm
 sys.path.append('../')
 
 def home(request):
