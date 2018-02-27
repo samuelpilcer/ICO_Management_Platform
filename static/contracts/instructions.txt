@@ -1,0 +1,5 @@
+1/Create a TKN contract. Name yourself as an owner.
+2/Create a Crowdsale contract.
+3/Set the Crowdsale address as the minter of TKNs.
+4/Set the Price.
+5/Open the sale.
