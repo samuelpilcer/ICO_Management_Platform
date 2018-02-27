@@ -18,6 +18,7 @@ from django.views.static import serve
 import sys
 from .forms import ConnexionForm, InscriptionForm
 sys.path.append('../')
+from tokens.models import Token
 
 def home(request):
     try:
