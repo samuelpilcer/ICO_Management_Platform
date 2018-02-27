@@ -15,10 +15,8 @@ import json
 import csv
 import os
 from django.views.static import serve
-from .forms import ConnexionForm, InscriptionForm
 import sys
 sys.path.append('../')
-from tokens.models import Token
 
 def home(request):
     try:
