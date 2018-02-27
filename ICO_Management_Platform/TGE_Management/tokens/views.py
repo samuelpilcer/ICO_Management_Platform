@@ -3,7 +3,7 @@ from django.shortcuts import render
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import logout
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
@@ -43,6 +43,12 @@ def token(request, id):
         return redirect('home')
     if model.admin!=request.user:
         return redirect('home')
+
+    is_launched=False
+    if model.sale_state=="started":
+        is_launched=True
+    if model.sale_state=="finished":
+        is_finished=True
 
     models=[model]
     id_model=id

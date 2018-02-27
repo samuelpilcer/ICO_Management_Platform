@@ -3,7 +3,7 @@ from django.shortcuts import render
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import logout
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
@@ -15,8 +15,8 @@ import json
 import csv
 import os
 from django.views.static import serve
-from .forms import ConnexionForm, InscriptionForm
 import sys
+from .forms import ConnexionForm, InscriptionForm
 sys.path.append('../')
 from tokens.models import Token
 
@@ -27,7 +27,6 @@ def home(request):
         models = []
     # Retourne nombre1, nombre2 et la somme des deux au tpl
     return render(request, 'index.html', locals())
-
 
 def connexion(request):
     error = False

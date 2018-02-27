@@ -34,19 +34,19 @@
 
       <div class="card mb-3">
         <div class="card-header">
-          <i class="fa fa-table"></i>Etat du réseau</div>
+          <i class="fa fa-table"></i> Etat de l'ICO</div>
         <div class="card-body">
-          {% if is_trained %}
-          <button type="button" class="btn btn-lg btn-success" disabled>Réseau entrainé. Accuracy : {{ accuracy }}</button>
+          {% if is_launched %}
+          <button type="button" class="btn btn-lg btn-success" disabled>XXX</button>
           {% else %}
-          <button type="button" class="btn btn-lg btn-warning" disabled>Réseau non entrainé</button>
+          <button type="button" class="btn btn-lg btn-warning" disabled>La vente n'est pas encore lancée.</button>
           {% endif %}
         </div>
       </div>
 
       <div class="card mb-3">
         <div class="card-header">
-          <i class="fa fa-table"></i>Données d'entraînement</div>
+          <i class="fa fa-table"></i> Données d'entraînement</div>
         <div class="card-body">
           <a href="http://m-learning.fr/train-model/{{ id_model }}">Entraîner le modèle</a>
         </div>
@@ -55,7 +55,7 @@
       {% if is_trained %}
       <div class="card mb-3">
         <div class="card-header">
-          <i class="fa fa-table"></i>Données d'entraînement</div>
+          <i class="fa fa-table"></i> Données d'entraînement</div>
         <div class="card-body">
           <a href="http://m-learning.fr/process-model/{{ id_model }}">Emettre des prédictions</a>
         </div>
