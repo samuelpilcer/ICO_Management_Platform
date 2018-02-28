@@ -29,6 +29,9 @@ def new_token(request):
             new_model.titre=form.cleaned_data.get('titre')
             new_model.description=form.cleaned_data.get('description')
             new_model.admin=request.user
+            new_model.symbol=form.cleaned_data.get('symbol')
+            new_model.cap=form.cleaned_data.get('cap')
+            new_model.ether_price=form.cleaned_data.get('ether_price')
             new_model.save()
             return redirect('home')
     else:
