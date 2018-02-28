@@ -22,3 +22,9 @@ class Token(models.Model):
         nous traiterons plus tard et dans l'administration
         """
         return self.titre
+
+class Token_in_address(models.Model):
+    token = models.ForeignKey(Token, on_delete=models.CASCADE)
+    address = models.CharField(max_length=100, default="0")
+    def __str__(self):
+        return self.address
