@@ -25,14 +25,14 @@ def new_token(request):
     if request.method == 'POST':
         form = TokenForm(request.POST)
         if form.is_valid():
-            new_model=Token()
-            new_model.titre=form.cleaned_data.get('titre')
-            new_model.description=form.cleaned_data.get('description')
-            new_model.admin=request.user
-            new_model.symbol=form.cleaned_data.get('symbol')
-            new_model.cap=form.cleaned_data.get('cap')
-            new_model.ether_price=form.cleaned_data.get('ether_price')
-            new_model.save()
+            new_token_=Token()
+            new_token_.titre=form.cleaned_data.get('titre')
+            new_token_.description=form.cleaned_data.get('description')
+            new_token_.admin=request.user
+            new_token_.symbol=form.cleaned_data.get('symbol')
+            new_token_.cap=form.cleaned_data.get('cap')
+            new_token_.ether_price=form.cleaned_data.get('ether_price')
+            new_token_.save()
             return redirect('home')
     else:
         form = TokenForm()
@@ -41,19 +41,19 @@ def new_token(request):
 @login_required
 def token(request, id):
     try:
-        model = Token.objects.all().get(id=id)
+        token = Token.objects.all().get(id=id)
     except:
         return redirect('home')
-    if model.admin!=request.user:
+    if token.admin!=request.user:
         return redirect('home')
 
     is_launched=False
-    if model.sale_state=="started":
+    if token.sale_state=="started":
         is_launched=True
-    if model.sale_state=="finished":
+    if token.sale_state=="finished":
         is_finished=True
 
-    models=[model]
+    tokens=[token]
     id_model=id
     
     return render(request, 'token.html', locals())
