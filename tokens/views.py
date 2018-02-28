@@ -53,7 +53,7 @@ def token(request, id):
     if token.sale_state=="finished":
         is_finished=True
 
-    tokens=[token]
+    #tokens=[token]
     id_model=id
     
     return render(request, 'token.html', locals())
