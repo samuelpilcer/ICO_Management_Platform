@@ -18,6 +18,7 @@ gunicorn = "==19.7.1"
 "psycopg2" = "==2.7.3.2"
 whitenoise = "==3.3.1"
 web3 = "==3.16.5"
+py-solc = "==2.1.0"
 
 
 [dev-packages]
