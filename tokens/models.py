@@ -14,7 +14,7 @@ class Token(models.Model):
     sale_state = models.CharField(max_length=100, default="not_started")
     date = models.DateTimeField(auto_now_add=True, auto_now=False, 
                                 verbose_name="Date de parution")
-    address = models.CharField(max_length=100, default="")
+    #address = models.CharField(max_length=100, default="0")
     def __str__(self):
         """ 
         Cette méthode que nous définirons dans tous les modèles
