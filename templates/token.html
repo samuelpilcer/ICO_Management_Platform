@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block tge_data %} 
+    <div class="container-fluid">
+      <!-- Breadcrumbs-->
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="/">Accueil</a>
+        </li>
+        {% if user.is_authenticated %}
+        <li class="breadcrumb-item active">{{ model.titre }}</li>
+        {% endif %}
+      </ol>
+      <!-- Icon Cards-->
+      {% if user.is_authenticated %}
+      <div class="card mb-3">
+        <div class="card-header">
+          <i class="fa fa-table"></i> Nom du token : {{ model.titre }}</div>
+        <div class="card-body">
+          Description : {{ model.description }}
+          </br>
+          </br>
+          Symbole : {{ model.symbol }}
+         </br></br>
+          Prix du token en Ether : {{ model.ether_price}}.
+          </br></br>
+          Prix du token en USD : .
+          </br></br>
+          Cap fixé pour la mise en vente : {{ token.cap }}.
+          </br></br>
+        </div>
+        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+      </div>
+
+      <div class="card mb-3">
+        <div class="card-header">
+          <i class="fa fa-table"></i> Etat de l'ICO</div>
+        <div class="card-body">
+          {% if is_launched %}
+          <button type="button" class="btn btn-lg btn-success" disabled>XXX</button>
+          {% else %}
+          <button type="button" class="btn btn-lg btn-warning" disabled>La vente n'est pas encore lancée.</button>
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="card mb-3">
+        <div class="card-header">
+          <i class="fa fa-table"></i> Données d'entraînement</div>
+        <div class="card-body">
+          <a href="http://m-learning.fr/train-model/{{ id_model }}">Entraîner le modèle</a>
+        </div>
+        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+      </div>
+      {% if is_trained %}
+      <div class="card mb-3">
+        <div class="card-header">
+          <i class="fa fa-table"></i> Données d'entraînement</div>
+        <div class="card-body">
+          <a href="http://m-learning.fr/process-model/{{ id_model }}">Emettre des prédictions</a>
+        </div>
+        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+      </div>
+      {% endif %}
+      
+      {% endif %}
+
+      <!-- Example DataTables Card-->
+      
+    </div>
+    <!-- /.container-fluid-->
+    {% endblock %} 
