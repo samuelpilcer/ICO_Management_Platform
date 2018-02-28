@@ -17,6 +17,7 @@ import os
 from django.views.static import serve
 from .forms import TokenForm
 from .models import Token
+import web3
 # Create your views here.
 
 
@@ -57,3 +58,17 @@ def token(request, id):
     id_model=id
     
     return render(request, 'token.html', locals())
+
+@login_required
+def launch(request, id):
+    try:
+        token = Token.objects.all().get(id=id)
+    except:
+        return redirect('home')
+    if token.admin!=request.user:
+        return redirect('home')
+
+    url_api="https://api.myetherapi.com/rop/"
+
+
+
