@@ -8,21 +8,21 @@
           <a href="/">Accueil</a>
         </li>
         {% if user.is_authenticated %}
-        <li class="breadcrumb-item active">{{ model.titre }}</li>
+        <li class="breadcrumb-item active">{{ token.titre }}</li>
         {% endif %}
       </ol>
       <!-- Icon Cards-->
       {% if user.is_authenticated %}
       <div class="card mb-3">
         <div class="card-header">
-          <i class="fa fa-table"></i> Nom du token : {{ model.titre }}</div>
+          <i class="fa fa-table"></i> Nom du token : {{ token.titre }}</div>
         <div class="card-body">
-          Description : {{ model.description }}
+          Description : {{ token.description }}
           </br>
           </br>
-          Symbole : {{ model.symbol }}
+          Symbole : {{ token.symbol }}
          </br></br>
-          Prix du token en Ether : {{ model.ether_price}}.
+          Prix du token en Ether : {{ token.ether_price}}.
           </br></br>
           Prix du token en USD : .
           </br></br>
